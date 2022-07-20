@@ -1,11 +1,11 @@
 # **responsive-web-design**
 ## HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design.
 
-[x] Learn HTML by Building a Cat Photo App, Completed 7/20/2022
+[X] Learn HTML by Building a Cat Photo App, Completed 7/20/2022
 
-[x] Learn Basic CSS by Building a Cafe Menu, Completed
+[X] Learn Basic CSS by Building a Cafe Menu, Completed 7/20/2022
 
-[ ] Learn CSS Colors by Building a Set of Colored Markers, Not started
+[X] Learn CSS Colors by Building a Set of Colored Markers, 7/20/2022
 
 [ ] Learn HTML Forms by Building a Registration Form, Not started
 
