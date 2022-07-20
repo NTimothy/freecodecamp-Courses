@@ -5,7 +5,7 @@
 
 [X] Learn Basic CSS by Building a Cafe Menu, Completed 7/20/2022
 
-[X] Learn CSS Colors by Building a Set of Colored Markers, 7/20/2022
+[X] Learn CSS Colors by Building a Set of Colored Markers, Completed 7/20/2022
 
 [ ] Learn HTML Forms by Building a Registration Form, Not started
 
