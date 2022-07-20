@@ -1,5 +1,5 @@
-#**responsive-web-design**
-##HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design.
+# **responsive-web-design**
+## HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design.
 
 [x] Learn HTML by Building a Cat Photo App, Completed 7/20/2022
 
