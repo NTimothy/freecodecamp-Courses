@@ -9,7 +9,7 @@
 
 [X] Learn HTML Forms by Building a Registration Form, Completed 7/21/2022
 
-[ ] Survey Form, Not started
+[X] **Survey Form**, Completed 7/22/2022
 
 [ ] Learn the CSS Box Model by Building a Rothko Painting, Not started
 
