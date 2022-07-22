@@ -1,0 +1,39 @@
+body {
+  width: 100%;
+  background-image: url(https://wallpapercave.com/wp/wp6474174.png);
+  height: 100vh;
+  margin: 0;
+  font-family: Calibri;
+  color: RGBA(201, 201, 201, 1);
+}
+
+h1, p {
+  margin: 1em auto;
+  text-align: center;
+}
+
+form {
+  width: auto;
+  margin: auto;
+  padding-bottom: 2em;
+  background-color: RGBA(25, 25, 25, 75%)
+}
+
+fieldset {
+  margin: 0 1em;
+}
+
+label {
+  display: block;
+}
+
+input {
+  margin: 10px;
+}
+
+.option {
+  display: block;
+}
+textarea {
+  display:block;
+}
