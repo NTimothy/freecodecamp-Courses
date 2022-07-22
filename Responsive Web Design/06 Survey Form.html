@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Survey Form</title>
+        <link href="styles.css" rel="stylesheet"/>
+        /* This is a required submission /*
+    </head>
+
+    <body>
+      <div class="top">
+        <h1 id="title">Survey Form</h1>
+        <p id="description">This is a survey about your programming experience.</p>
+      </div>
+        <form id="survey-form">
+            <fieldset>
+                    <label id="name-label">Enter your Full Name:
+                        <input id="name"
+                               type="text"
+                               required
+                               placeholder="First Last"
+                               /></label>
+                    <label id="email-label">Enter your Email Address:
+                        <input id="email"
+                               type="email"
+                               required
+                               placeholder="Example@email.com"
+                               pattern="[A-Za-z0-9!#$%&'*+-/=?^_`{|}~]+@[a-z0-9.-]+\.[a-z]{2,}"
+                               /></label>
+                    <label id="number-label">What is your age?:
+                        <input id="number"
+                               type="number"
+                               required
+                               pattern="[0-9]"
+                               min="18"
+                               max="110"
+                               placeholder=">17"
+                               /></label>
+            </fieldset>
+
+            <fieldset>
+                <label>Which device are you using to complete this survey?
+                    <select name="device" id="dropdown">
+                        <option>(select one)</option>
+                        <option>Computer Device</option>
+                        <option>Mobile Device</option>
+                        <option>Other</option>
+                    </select></label>
+
+                <label id="experience-label">How many years of experience do you have?</label>
+                <label><input type="radio" value="1" name="experience"/>0-1 Years</label>
+                <label><input type="radio" value="2" name="experience"/>1-3 Years</label>
+                <label><input type="radio" value="3" name="experience"/>3+ Years</label>
+
+                <label id="languages-label">Which is/are your preferred programming languages?
+                <label><input type="checkbox" value="1" name="languages"/>Python</label>
+                <label><input type="checkbox" value="2" name="languages"/>Javascript</label>
+                <label><input type="checkbox" value="3" name="languages"/>Java</label>
+                <label><input type="checkbox" value="4" name="languages"/>C#</label>
+                <label><input type="checkbox" value="5" name="languages"/>C</label>
+                <label><input type="checkbox" value="6" name="languages"/>C++</label>
+                <label><input type="checkbox" value="7" name="languages"/>Golang</label>
+                <label><input type="checkbox" value="8" name="languages"/>R</label>
+                <label><input type="checkbox" value="9" name="languages"/>Swift</label>
+                <label><input type="checkbox" value="10" name="languages"/>PHP</label>
+                <label><input type="checkbox" value="0" name="languages"/>Other</label>
+                </label>
+
+                <label id="explanation-label">Please enter any additional comments here:
+                      <textarea name="bio" rows="5" cols="60" placeholder="I prefer to use [programming language] because..."></textarea>
+                        </label>
+
+            </fieldset>
+            <input id="submit" type="Submit" />
+      </form>
+    </body>
+  </html>
