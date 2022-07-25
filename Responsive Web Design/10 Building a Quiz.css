@@ -18,3 +18,8 @@ header {
 	aspect-ratio: 35/4;
 	padding: 0.4rem;
 }
+
+h1 {
+	color: #f1be32;
+	font-size: min(5vw, 1.2em)
+}
