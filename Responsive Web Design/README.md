@@ -15,7 +15,7 @@
 
 [x] Learn CSS Flexbox by Building a Photo Gallery Completed 7/23/2022
 
-[x] Learn Typography by Building a Nutrition Label, Ceomplted 7/24/2022
+[x] Learn Typography by Building a Nutrition Label, Completed 7/24/2022
 
 [x] Learn Accessibility by Building a Quiz, Completed 7/25/2022
 
