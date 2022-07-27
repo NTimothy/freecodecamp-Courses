@@ -1,4 +1,4 @@
-# **responsive-web-design**
+# **freecodecamp - Responsive Web Design**
 ## HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design.
 
 [X] Learn HTML by Building a Cat Photo App, Completed 7/20/2022
@@ -9,17 +9,17 @@
 
 [X] Learn HTML Forms by Building a Registration Form, Completed 7/21/2022
 
-[X] **Survey Form**, Completed 7/22/2022
+[X] **Survey Form**, REQUIRED,  Completed 7/22/2022
 
-[ ] Learn the CSS Box Model by Building a Rothko Painting, Not started
+[x] Learn the CSS Box Model by Building a Rothko Painting, Completed 7/22/2022
 
-[ ] Learn CSS Flexbox by Building a Photo Gallery, Not started
+[x] Learn CSS Flexbox by Building a Photo Gallery Completed 7/23/2022
 
-[ ] Learn Typography by Building a Nutrition Label, Not started
+[x] Learn Typography by Building a Nutrition Label, Ceomplted 7/24/2022
 
-[ ] Learn Accessibility by Building a Quiz, Not started
+[x] Learn Accessibility by Building a Quiz, Completed 7/25/2022
 
-[ ] Tribute Page, Not started
+[x] **Tribute Page**, REQUIRED, Completed 7/26/2022
 
 [ ] Learn More About CSS Pseudo Selectors By Building A Balance Sheet, Not started
 
