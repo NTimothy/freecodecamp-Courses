@@ -21,6 +21,7 @@ html {
   width: 949px;
   height: 180px;
   padding-left: 2px;
+  overflow: hidden;
 }
 
 .key {
@@ -47,4 +48,28 @@ html {
   width: 200px;
   position: absolute;
   top: 23px;
+}
+
+@media (max-width: 768px) {
+  #piano {
+    width: 358px;
+  }
+
+  .keys {
+    width: 318px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 769px) {
+  #piano {
+    width: 675px;
+  }
+
+  .keys {
+    width: 633px;
+  }
 }
