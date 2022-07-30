@@ -1,10 +1,40 @@
+
+#navbar {
+  position: fixed;
+  min-width: 300px;
+  width: 300;
+  top: 10px;
+  left: 0;
+  height: 100%;
+  border-right: 1px solid;
+  border-color: white;
+}
+
 body {
   background-color: 242333;
-  color: #FFFFFF;
+  color: #D0D0D0;
   font-family: Helvetica, sans-serif, monospace;
+  line-height: 1.6;
 }
 
 
+#main-doc {
+  position: absolute;
+  margin-left: 300px;
+  padding: 20px;
+  margin-bottom:100px
+}
+
+code span {
+  color:orange;
+  font: arial;
+  font-size: 20;
+}
+
+.bold {
+  font-size: 18;
+  color: orange;
+}
 
 /* Links  */
 
@@ -13,7 +43,7 @@ a:visited {
   }
 
 a:hover{
-   color: #FFF654; 
+   color: white; 
   }
   
 a {
@@ -23,11 +53,12 @@ a {
 
 /* Media Screen */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   #navbar ul{
     border: 1px solid;
-    height: 200px;
+    height: 240px;
   }
+
   #navbar {
     padding-top: 5px;
     border-bottom: 2px solid;
@@ -39,6 +70,10 @@ a {
 
   #main-doc {
     margin-left: -5px;
+    position: relative;
+    margin-top: 300px;
+    padding-top: 20px;
+
   }
 
 }
