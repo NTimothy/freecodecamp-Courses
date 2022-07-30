@@ -16,7 +16,7 @@
 | :white_check_mark: | Learn More About CSS Pseudo Selectors By Building A Balance Sheet | 7/27/2022
 | :black_square_button: | Learn Intermediate CSS by Building a Picasso Painting |
 | :white_check_mark: | Learn Responsive Web Design by Building a Piano | 7/27/2022
-| :black_square_button: | **Technical Documentation Page**, REQUIRED |  
+| :white_check_mark: | **Technical Documentation Page**, REQUIRED |  7/30/2022*
 | :black_square_button: | Learn CSS Variables by Building a City Skyline | 
 | :black_square_button: | Learn CSS Grid by Building a Magazine | 
 | :black_square_button: | **Product Landing Page**, REQUIRED | 
