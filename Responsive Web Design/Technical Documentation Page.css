@@ -1,0 +1,44 @@
+body {
+  background-color: 242333;
+  color: #FFFFFF;
+  font-family: Helvetica, sans-serif, monospace;
+}
+
+
+
+/* Links  */
+
+a:visited {
+  color: orange;
+  }
+
+a:hover{
+   color: #FFF654; 
+  }
+  
+a {
+  color: #FFD726;
+}
+
+
+/* Media Screen */
+
+@media screen and (max-width: 600px) {
+  #navbar ul{
+    border: 1px solid;
+    height: 200px;
+  }
+  #navbar {
+    padding-top: 5px;
+    border-bottom: 2px solid;
+    top: 0;
+    width: 100%;
+    border:none;
+    z-index: 1;
+  }
+
+  #main-doc {
+    margin-left: -5px;
+  }
+
+}
