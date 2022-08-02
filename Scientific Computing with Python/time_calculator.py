@@ -1,51 +1,24 @@
-"""
-failed 3 tests
-def test(num):
-    # Personal Tests
-    if num == 0:
-        add_time("00:00 AM", "00:00")
-        add_time("00:00 AM", "11:59")
-        add_time("00:00 AM", "12:01")
-        add_time("00:00 AM", "23:59")
-        add_time("00:00 AM", "24:01")
-        add_time("00:00 AM", "49:01")
 
-    # Test Cases
-    if num == 1:
-        add_time("3:00 PM", "3:10")
-        print("Returns: 6:10 PM")
+def format_answer(clock, days=0, day_given=False, case=0):
+    hour, minute, mer, weekday = clock[0], clock[1], clock[2], clock[3]
 
-        add_time("11:30 AM", "2:32", "Monday")
-        print("Returns: 2:02 PM, Monday")
-
-        add_time("11:43 AM", "00:20")
-        print("Returns: 12:03 PM")
-
-        add_time("10:10 PM", "3:30")
-        print("Returns: 1:40 AM (next day)")
-
-        add_time("11:43 PM", "24:20", "tueSday")
-        print("Returns: 12:03 AM, Thursday (2 days later)")
-
-        add_time("6:30 PM", "205:12")
-        print("Returns: 7:42 AM (9 days later)")
-"""
-
-def clock_display(clock, days="", weekday="", case=0):
-    hour, minute, mer = clock[0], clock[1], clock[2]
+    # Format Minutes Hand to String
     if minute == 0:
         minute = str("00")
-    elif 10>minute>0:
+    elif 10 > minute > 0:
         minute = str("0")+str(minute)
 
+    if day_given:
+        case += 3
 
     # Formats clock to desired test outputs
     _output = {
         0: f"{hour}:{minute} {mer}",
         1: f"{hour}:{minute} {mer} (next day)",
-        2: f"{hour}:{minute} {mer}, {weekday}",
-        3: f"{hour}:{minute} {mer}, ({days} days later)",
-        4: f"{hour}:{minute} {mer}, {weekday} ({days} days later)"
+        2: f"{hour}:{minute} {mer} ({days} days later)",
+        3: f"{hour}:{minute} {mer}, {weekday}",
+        4: f"{hour}:{minute} {mer}, {weekday} (next day)",
+        5: f"{hour}:{minute} {mer}, {weekday} ({days} days later)"
     }
     return _output.get(case, "")
 
@@ -71,12 +44,12 @@ def what_day(day, weekday=False):
 
 
 def what_period(meridiem, periods=False):
-    meridiem = meridiem.upper()
     period = {
         "AM": 0,
         "PM": 1
     }
     if not periods:
+        meridiem = meridiem.upper()
         return period.get(meridiem, "")
     elif periods:
         for key, value in period.items():
@@ -84,88 +57,161 @@ def what_period(meridiem, periods=False):
                 return key
 
 
-def simplify(time):
-    calc = True
-    time_passed = [0, 0, 0, 0]
-    while calc:
-        if time >= 1440:
-            time -= 1440
-            time_passed[3] += 1
-        elif time >= 720:
-            time -= 720
-            time_passed[2] += 1
-        elif time >= 60:
-            time -= 60
-            time_passed[0] += 1
+def military_time(clock, reverse=False):
+    time = [0, 0]
+    # Converts Standard Time into a Military Time and returns list in format [Hour, Minute]
+    if not reverse:
+        if clock[1] < 10:
+            time = [str(clock[0] % 12 + what_period(clock[2]) * 12), "0" + str(clock[1])]
         else:
-            time_passed[1] = time
-            calc = False
+            time = [str(clock[0] % 12 + what_period(clock[2]) * 12), str(clock[1])]
+    return time
 
-    return time_passed
+
+def simplify(time):
+    # Resets absolute time after 1 week (10080 minutes) has passed
+    time = time % 10080
+
+    # Determines what day of the week
+    day = what_day(int(time/1440), True)
+
+    # Determines clock values (Hour, Minute, Ante Meridiem)
+    hour = int((time % 1440)/60)
+    minute = time % 60
+    meridiem = int(hour/12) % 2
+    meridiem_txt = what_period(meridiem, True)
+    if meridiem == 1:
+        hour -= 12
+        if hour == 0:
+            hour += 12
+    elif meridiem == 0 and hour == 0:
+        hour += 12
+
+    # print(f"{hour}:{minute} {meridiem_txt} on {day}")
+    return [hour, minute, meridiem_txt, day]
 
 
 def add_time(start, duration, weekday=""):
+    case = 0
     # Separates hours/minutes/period/weekday
     time_start = start.split(":")
     time_add = duration.split(":")
-    current_display = [int(time_start[0]), int(time_start[1][:2]), time_start[1][3:], weekday]
 
-    # Check Raw Input
-    # print("INPUT:",time_start, "(", weekday.capitalize(), ") +", time_add)
+    # Format current time into list [Hour, Minute, Ante meridiem]
+    clock = [int(time_start[0]), int(time_start[1][:2]), time_start[1][3:], weekday]
 
-    # meridiem = what_period(str(time_start[1][2:]))
+    # Format time into military time [Hour, Minute, Ante meridiem]
+    clock_military = military_time(clock)
 
-    duration_total = int(time_add[0])*60 + int(time_add[1])
+    # FOR TESTING | print(f"CLOCK (Military): {clock_military[0]}{clock_military[1]} {weekday}")
+    inputs = [int(clock_military[0]), int(clock_military[1]), weekday, int(time_add[0]), int(time_add[1])]
 
-    # Calculate needed changes to clock
-    duration_simplified = simplify(duration_total)
-    # print("SIMPLIFIED (hh|mm|mer|dd):", duration_simplified)
-
-    current_display[2] = what_period(current_display[2])
-    new_clock = [
-        (current_display[0]+duration_simplified[0]),
-        current_display[1]+duration_simplified[1],
-        current_display[2]+duration_simplified[2]
-        ]
-
-    if new_clock[1] >= 60:
-        new_clock[0] += 1
-        new_clock[1] -= 60
-        new_clock[2] += 1
-
-    # print(new_clock)
-    # print(current_display)
-    if new_clock[0]> 12:
-        new_clock[0] = (new_clock[0]%12)
-        if current_display[2]==1:
-            new_clock[2] +=1
-
-
-    if new_clock[2] == 2 or new_clock[2] == 0:
-        if new_clock[2] ==2:
-            duration_simplified[3] += 1
-        new_clock[2] = "AM"
-    elif new_clock[2] > 2 or new_clock[2]==1:
-        if new_clock[2] >2:
-            duration_simplified[3] +=1
-        new_clock[2] = "PM"
-    if new_clock[0] == 0:
-        new_clock[0] = 12
-
-    case = 0
-    if duration_simplified[3]>1 and not weekday == "":
-        case=4
-    elif duration_simplified[3]>1 and weekday == "":
-        case=3
-    elif duration_simplified[3]<1 and not weekday == "":
-        case=2
-    elif duration_simplified[3] == 1:
-        case=1
-
+    # Absolute Time is a representational number for the exact Day/Hour/Time in any given week
+    # Absolute Time = Current Hour + Current Minutes + Current Day
+    # Absolute Time New = Current Hour + Current Minutes + Current Day + Added Hours + Added Minutes
     if not weekday == "":
-        weekday = (what_day(weekday) + duration_simplified[3])%7
-        weekday = what_day(weekday, True)
+        absolute_time = \
+            (inputs[0]*60) \
+            + (inputs[1]) \
+            + (what_day(weekday)*1440)
 
+        absolute_time_new = \
+            (inputs[0]*60) \
+            + (inputs[1]) \
+            + (inputs[3]*60) \
+            + (inputs[4]) \
+            + (what_day(weekday)*1440)
+        day_given = True
+    else:
+        absolute_time = \
+            (inputs[0]*60) \
+            + (inputs[1]) \
 
-    return clock_display(new_clock,duration_simplified[3],weekday,case)
+        absolute_time_new = \
+            (inputs[0]*60) \
+            + (inputs[1]) \
+            + (inputs[3]*60) \
+            + (inputs[4])
+        day_given = False
+        # weekday = "Sunday"
 
+    clock_new = simplify(absolute_time_new)
+
+    # print(inputs)
+    # print("CLOCK:", clock)
+    # print(days_passed)
+    # print("NEW CLOCK:", clock_new)
+    # print("Now -> Later | ", absolute_time," --> ", absolute_time_new)
+    # print("----------")
+
+    # Calculates total days passed from input
+    days_passed = int(inputs[3]/24)
+
+    # if PM -> AM, change format
+    if ((absolute_time % 1440) >= 720 and (absolute_time_new % 1440 < 720)) or (days_passed == 1):
+        case = 1
+
+    # if PM -> AM and >1 day transition
+    if inputs[3] >= 24 and inputs[4] > 0:
+        case += 1
+        days_passed += 1
+
+    ans = format_answer(clock_new, days_passed, day_given, case)
+    return ans
+
+# def what(a,b):
+#     print(a,"|", b)
+#     print("===========")
+#
+#
+# def test():
+#     actual = add_time("3:30 PM", "2:12")
+#     expected= "5:42 PM"
+#     what(actual,expected)
+#
+#     actual = add_time("11:55 AM", "3:12")
+#     expected = "3:07 PM"
+#     what(actual, expected)
+#
+#     actual = add_time("9:15 PM", "5:30")
+#     expected = "2:45 AM (next day)"
+#     what(actual, expected)
+#
+#     actual = add_time("11:40 AM", "0:25")
+#     expected = "12:05 PM"
+#     what(actual, expected)
+#
+#     actual = add_time("2:59 AM", "24:00")
+#     expected = "2:59 AM (next day)"
+#     what(actual, expected)
+#
+#     actual = add_time("11:59 PM", "24:05")
+#     expected = "12:04 AM (2 days later)"
+#     what(actual, expected)
+#
+#     actual = add_time("8:16 PM", "466:02")
+#     expected = "6:18 AM (20 days later)"
+#     what(actual, expected)
+#
+#     actual = add_time("5:01 AM", "0:00")
+#     expected = "5:01 AM"
+#     what(actual, expected)
+#
+#     actual = add_time("3:30 PM", "2:12", "Monday")
+#     expected = "5:42 PM, Monday"
+#     what(actual, expected)
+#
+#     actual = add_time("2:59 AM", "24:00", "saturDay")
+#     expected = "2:59 AM, Sunday (next day)"
+#     what(actual, expected)
+#
+#     actual = add_time("11:59 PM", "24:05", "Wednesday")
+#     expected = "12:04 AM, Friday (2 days later)"
+#     what(actual, expected)
+#
+#     actual = add_time("8:16 PM", "466:02", "tuesday")
+#     expected = "6:18 AM, Monday (20 days later)"
+#     what(actual, expected)
+#
+#
+# test()
