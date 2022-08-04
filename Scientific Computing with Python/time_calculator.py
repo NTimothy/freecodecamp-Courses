@@ -137,13 +137,6 @@ def add_time(start, duration, weekday=""):
 
     clock_new = simplify(absolute_time_new)
 
-    # print(inputs)
-    # print("CLOCK:", clock)
-    # print(days_passed)
-    # print("NEW CLOCK:", clock_new)
-    # print("Now -> Later | ", absolute_time," --> ", absolute_time_new)
-    # print("----------")
-
     # Calculates total days passed from input
     days_passed = int(inputs[3]/24)
 
@@ -158,60 +151,3 @@ def add_time(start, duration, weekday=""):
 
     ans = format_answer(clock_new, days_passed, day_given, case)
     return ans
-
-# def what(a,b):
-#     print(a,"|", b)
-#     print("===========")
-#
-#
-# def test():
-#     actual = add_time("3:30 PM", "2:12")
-#     expected= "5:42 PM"
-#     what(actual,expected)
-#
-#     actual = add_time("11:55 AM", "3:12")
-#     expected = "3:07 PM"
-#     what(actual, expected)
-#
-#     actual = add_time("9:15 PM", "5:30")
-#     expected = "2:45 AM (next day)"
-#     what(actual, expected)
-#
-#     actual = add_time("11:40 AM", "0:25")
-#     expected = "12:05 PM"
-#     what(actual, expected)
-#
-#     actual = add_time("2:59 AM", "24:00")
-#     expected = "2:59 AM (next day)"
-#     what(actual, expected)
-#
-#     actual = add_time("11:59 PM", "24:05")
-#     expected = "12:04 AM (2 days later)"
-#     what(actual, expected)
-#
-#     actual = add_time("8:16 PM", "466:02")
-#     expected = "6:18 AM (20 days later)"
-#     what(actual, expected)
-#
-#     actual = add_time("5:01 AM", "0:00")
-#     expected = "5:01 AM"
-#     what(actual, expected)
-#
-#     actual = add_time("3:30 PM", "2:12", "Monday")
-#     expected = "5:42 PM, Monday"
-#     what(actual, expected)
-#
-#     actual = add_time("2:59 AM", "24:00", "saturDay")
-#     expected = "2:59 AM, Sunday (next day)"
-#     what(actual, expected)
-#
-#     actual = add_time("11:59 PM", "24:05", "Wednesday")
-#     expected = "12:04 AM, Friday (2 days later)"
-#     what(actual, expected)
-#
-#     actual = add_time("8:16 PM", "466:02", "tuesday")
-#     expected = "6:18 AM, Monday (20 days later)"
-#     what(actual, expected)
-#
-#
-# test()
