@@ -23,3 +23,5 @@
 | :black_square_button: | Learn CSS Animation by Building a Ferris Wheel | 
 | :black_square_button: | Learn CSS Transforms by Building a Penguin | 
 | :black_square_button: | **Personal Portfolio Webpage**, REQUIRED | 
+
+* _Project requirements met, however additional formatting/content may have been/will be added after this date_
