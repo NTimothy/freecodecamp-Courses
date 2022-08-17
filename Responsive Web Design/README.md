@@ -18,7 +18,7 @@
 | :white_check_mark: | Learn Responsive Web Design by Building a Piano | 7/27/2022
 | :white_check_mark: | **Technical Documentation Page**, REQUIRED |  7/30/2022*
 | :white_check_mark: | Learn CSS Variables by Building a City Skyline | 8/9/2022
-| :black_square_button: | Learn CSS Grid by Building a Magazine | 
+| :white_check_mark: | Learn CSS Grid by Building a Magazine | 8/18/2022
 | :black_square_button: | **Product Landing Page**, REQUIRED | 
 | :black_square_button: | Learn CSS Animation by Building a Ferris Wheel | 
 | :black_square_button: | Learn CSS Transforms by Building a Penguin | 
