@@ -19,7 +19,7 @@
 | :white_check_mark: | **Technical Documentation Page**, REQUIRED |  7/30/2022*
 | :white_check_mark: | Learn CSS Variables by Building a City Skyline | 8/9/2022
 | :white_check_mark: | Learn CSS Grid by Building a Magazine | 8/16/2022
-| :white_check_mark: | **Product Landing Page**, REQUIRED | 8/17/2022*
+| :black_square_button: | **Product Landing Page**, REQUIRED |
 | :white_check_mark: | Learn CSS Animation by Building a Ferris Wheel | 8/18/2022
 | :white_check_mark: | Learn CSS Transforms by Building a Penguin | 8/18/2022
 | :black_square_button: | **Personal Portfolio Webpage**, REQUIRED | 
