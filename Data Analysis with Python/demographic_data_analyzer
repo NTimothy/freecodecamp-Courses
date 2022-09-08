@@ -1,0 +1,14 @@
+import pandas as pd
+import numpy as np
+
+def calculate_demographic_data(print_data=True):
+    # create dataframe
+    df = pd.read_csv('adult.data.csv')
+
+    # How many of each race are represented?
+    # This should be a Pandas series with race names as the index labels
+    race_count = pd.Series(df.race.value_counts())
+
+    # What is the average age of men?
+    male_ages = df.age[df.sex == "Male"].tolist()
+    average_age_men = round(float(sum(male_ages)/len(male_ages)),1)
